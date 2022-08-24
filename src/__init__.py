@@ -7,6 +7,7 @@ app = Flask(__name__)
 
 
 def create_app():
+    print("kopytko")
     app.config['SECRET_KEY'] = 'secret-key-goes-here'
     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres123@postgres_db:5432/familybudget'
 
@@ -17,5 +18,7 @@ def create_app():
 
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
-
+    # db.drop_all()
+    # db.create_all()
+    # db.session.commit()
     return app
