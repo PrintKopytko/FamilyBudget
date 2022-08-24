@@ -1,6 +1,6 @@
 from flask.cli import FlaskGroup
-
-from .__init__ import app, db
+from flask import current_app as app
+from . import db
 
 
 cli = FlaskGroup(app)
