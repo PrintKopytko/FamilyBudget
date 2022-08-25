@@ -7,6 +7,7 @@ db = SQLAlchemy()
 
 def create_app():
     app = Flask(__name__)
+    app.config['SECRET_KEY'] = 'secret-key-goes-here'
     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres123@postgres_db:5432/familybudget'
 
     db.init_app(app)
@@ -31,4 +32,7 @@ def create_app():
     if not db.engine.table_names():
         db.create_all()
         db.session.commit()
+    db.drop_all()
+    db.create_all()
+    db.session.commit()
     return app
