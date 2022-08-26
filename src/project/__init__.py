@@ -32,7 +32,4 @@ def create_app():
     if not db.engine.table_names():
         db.create_all()
         db.session.commit()
-    db.drop_all()
-    db.create_all()
-    db.session.commit()
     return app

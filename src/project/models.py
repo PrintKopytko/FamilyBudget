@@ -3,7 +3,7 @@ from flask_login import UserMixin
 
 association_table = db.Table(
     "association",
-    db.Base.metadata,
+    db.Model.metadata,
     db.Column("user_id", db.ForeignKey("user.id"), primary_key=True),
     db.Column("budget_id", db.ForeignKey("budget.id"), primary_key=True),
 )
